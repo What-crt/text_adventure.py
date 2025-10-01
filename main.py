@@ -19,7 +19,7 @@ cheese = -2
 base_hp = 3
 hp = base_hp + current_buff
 if current_buff == 0:
-    print("You have run out of buff")
+    print("")
 elif current_buff < 0:
     if current_buff <= - 3:
         base_hp - 3
@@ -42,37 +42,38 @@ player_charge = 3
 #Mykel's part
 name = input("What is your name?")
 print(f"Hello {name}! welcome to the tutorial for 'Text Adventure'! ")
-print("When asked a question, you will awnser with your perferded option. These choices will influence your adventure.")
+print("When asked a question, you will awnser with your preferred option. These choices will influence your adventure.")
 print("For Example:")
-answer = input("You see two shops. A weapon shop and food market. You only have enough money to buy one thing. Weapon = w and food = f.")
-if answer == "w":
+awnser = input("You see two shops. A weapon shop and food market. You only have enough money to buy one thing. Weapon = w and food = f.")
+if awnser == "w":
     print("Nice! you bought yourself a new sword!")
 else:
-    if answer == "f":
+    if awnser == "f":
         print("yum! You bought a sack of apples!")
 print(f"Nice choice {name}!")
 print("Now that know how your adventure will work you are ready!")
 print("When you were young, you heard myths of an ancient golden egg that provides vast healing capabilities. Now that you're finally old enough, you will begin the search for it, whether it's myth or not.")
-print("Warning: You have been given three lives. If you lose all three you will be forced to restart.")
+print("Warning: If you make a wrong choice you could get seriously hurt or even be forced to restart.")
 print("Good luck brave adventurer!")
+print("------------")
 
 #Ambar's part
-answer =input("You stumble across two paths, one is a bright path = b and the other a dark path = d. what path will you choose?")
-if answer == "d":
+awnser =input("You stumble across two paths, one is a bright path = b and the other a dark path = d. what path will you choose?")
+if awnser == "d":
     print("You find a bakery! You buy a loaf of bread. Yum! you gain one Hp.")
     current_buff += buff
     print("You keep exploring and come across a weapon shop.")
 else:
-    if answer == "b":
+    if awnser == "b":
         print("You find a lesser bandit.")
         bandit= input("Fight or Run, Press 1 to fight, 2 to run.")
-        if bandit == 1:
+        if bandit == "1":
             print("You lose two Hp.")
             hp - charge
             print("You are at 1 hp. Consume food to regain health.")
             print("You stumble into a weapon shop.")
         else:
-            if bandit == 2:
+            if bandit == "2":
                 print("You leave unharmed and come across a weapon shop.")
 
 weapon_shop = input("You decide that having a weapon would be smart. Would you like a sword = s or a axe = x?")
@@ -84,63 +85,99 @@ else:
         print("Your weapon of choice is a axe, nice!")
         print("You come to a large jungle full of mystery.")
 
-inventory = [f"modly cheese", "bread", weapon_shop]
+inventory = [f"modly cheese", "bread", "Your weapon"]
 
 jungle = input("You see two walkways. Do you go left or right?")
-if answer == "left":
+if jungle == "left":
     print("You continue your journey.")
-    print("You find a Jungle temple.")
 else:
     if jungle == "right":
-        print("You fall in a hole and die D: better luck next time.")
+        print("You walk of a cliff to your doom. D: Better luck next time.")
         hp = -10000000
     
 
-inventory= ["moldy cheese", "bread", weapon_shop] #Mykel helped with inentory
+inventory= ["moldy cheese", "bread", "Your weapon"] #Mykel helped with inentory
 
 
 #Domininiks part
-print("you find a jungle temple do you want to go around")
-yesno= input("yes or no ")
+print("you find a jungle temple do you want to go inside?")
+yesno = input("yes or no?")
           
 if yesno == "yes": 
     print("you find a giant spider")
 
+else:
+    if yesno == "no":
+        wolves = input("You keep walking and come upon a pack of wolves. What would you like to do? run= r or keep going = k.")
+        if wolves == "r":
+            print("You run from the wolves. They see you and start chasing you. The only safe place is the jungle temple, so you run inside.")
+            print("Inside you only find more trouble. Standing infront of you is a giant spider.")
+        else:
+            if wolves == "k":
+                print("You are sadley attacked and hurt. You are forced to find safety in the jungle temple.")
+                print("As you limp inside you find a giant spider inside staring right at you.")
+
+
+fightrun=input("Would you like to run again = r or fight the spider = f?")
+if fightrun == "f":
+    stab=input("stab= st or slash= sl?")
     
-    fightrun=input("run or fight")
-    if fightrun == "fight":
-        stab=input("stab or slash")
-        stab=="stab"
-        if stab == 'stab':
-             print("The spider, wounded backs into its web to see another day and amidst the temple you see a key on the ground\n")
-             key = print("you go inside the temple and see a key hole ingraved into the rock flooring")
-             if key == 'unlock':
-                   print("you unlock it and go down a long dark hall, you squint your eyes and come across a gigantic spider and behind it you see the golden egg.")
-                   ask=print('do you ask or fight')
-                   if ask=='ask':
-                         print("the spider picks you up and eats you alive")
-                   elif ask =='fight':
-                        inventoryask =print("do you want to use a something from your inventory?")            #Mykel helped with inventory
+    if stab == 'st':
+        print("The spider, now wounded, backs into its web.The spider gets tangled in its web and is struggling to get up. This gives you a chance to glance around the temple, lying on the floor is key.")
+        spider = input("In the few minutes or even secounds you have what do you do? pick up the key = k or finish fighting the spider = s?")
+        if spider == "k":
+            print("You quickly grab the key. Luckily the spider is still tangled, so you scan the room again.")
+            print("You see a small key hole ingraved into the rock flooring. You stick the key inside. Its a perfect fit!")
+            print("you unlock it and go down a long dark hall, you squint your eyes and come across yet another gigantic spider and behind it you see the golden egg.")
+            spider_2 = input("This might me the last chance to get the golden egg. Do you ask the spider for the egg = a or fight the spider = f?")
+            if spider_2 == "a":
+                 print("the spider picks you up and eats you alive. D: Better luck next time!")
+                 hp = -10000000
+            else:
+                if spider_2 =='f':
+                    inventoryask = input("Do you want to use a something from your inventory? yes or no?")            #Mykel helped with inventory
+                    if inventoryask == 'yes':
+                        print(f"you have {inventory} in your inventory.")
+                        inventory_question = input("what would you like to use? if cheese= c, if bread = b, and if sword = s.")
+                        if inventory_question == "s":
+                            print("You fight the giant spider and stab it in the eye. It crumples to the ground.")
+                            print("YOU WIN!!!!!!")
+                            print(f"After so long you finally found the Golden Egg! NICE WORK {name}!")
+                            print("---------")
+                            print("That was awesome! if you want to play again then push the play button again! (: (: (:")
+        else:
+            if spider == "s":
+                print(f"You swing your {weapon_shop} at the busy spider. Nice Shot! You defeat the spider! After taking a quick breather you pick up the key.")
+                print("You see a small key hole ingraved into the rock flooring. You stick the key inside. Its a perfect fit!")
+                print("you unlock it and go down a long dark hall, you squint your eyes and come across yet another gigantic spider and behind it you see the golden egg.")
+                spider_3 = input("This might me the last chance to get the golden egg. Do you ask the spider for the egg = a or fight the spider = f?")
+                if spider_3 == "a":
+                         print("the spider picks you up and eats you alive. D: Better luck next time!")
+                         hp = -1000000
+                else:
+                    if spider_3 =='f':
+                        inventoryask = input("Do you want to use a something from your inventory? yes or no?")            #Mykel helped with inventory and some coding around it.
                         if inventoryask == 'yes':
                             print(f"you have {inventory} in your inventory.")
-                            weapon_question = input("what would you like to use?")
-                        
-                            if weapon_question == "sword":
-                                    print("you fight the giant spider and stab it in the eye")
-                                    
-                                    
-                                    
-                                    if nextmove == "cut":
-                                     print=("you win")
-                                     print("After so long you finally find the Golden Egg of Abundance,")
-                                    
-                                    else:
-                                        print:("The Spider Lunges and catches you in it's talon like fangs")
-                                     
-if stab == 'slash':
-    print('you made the spider mad')
-    hp - charge
-elif fightrun =="run":
-    print("The spider begins to chase you. But since you are far slower then the spider catches you and peirces your body with a burning venom.")
+                            inventory_question = input("what would you like to use? if cheese= c, if bread = b, and if weapon = s.")
+                            if inventory_question == "s":
+                                    print("You fight the giant spider and stab it in the eye. It crumples to the ground.")
+                                    print("YOU WIN!!!!!!")
+                                    print(f"After so long you finally found the Golden Egg! NICE WORK {name}!")
+                                    print("---------")
+                                    print("That was awesome! if you want to play again then push the play button again! (: (: (:")
+
+                            else:
+                                if inventory_question == "c" or inventory_question == "b":
+                                    print("You throw the food at the monster. It bounces off one of its many legs and it attacks. D: Better luck next time!")
+                                    hp = -10000000
+                                   
+    else:                                
+        if stab == 'sl':
+                print("You ended up not hiting it as hard as you ment to and now the spider is mad.")
+                print("The spider dosent give you another chance to fight and swallows you. D: Better luck next time!")
+                hp = -10000000
 else:
-    print("you walk off of a cliff and fall to your doom")
+    if fightrun == "r":
+        print("The spider begins to chase you. But since you are far slower then the spider catches you. D: Better luck next time!")
+        hp = -10000000
